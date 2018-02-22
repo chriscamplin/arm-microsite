@@ -1,0 +1,25 @@
+footer {
+
+  background: $dark-blue;
+  min-height: 100px;
+
+  div {
+    margin: 20px auto ;
+    text-align: center;
+    width: 110px;
+  }
+
+  @include breakpoint(tablet) {
+
+    background: transparent;
+    bottom: 80px;
+    height: auto;
+    //position: absolute;
+
+    div {
+      text-align: left;
+      width: auto;
+    }
+  }
+
+}

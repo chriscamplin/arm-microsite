@@ -1,0 +1,47 @@
+// sass-lint:disable nesting-depth
+
+.contact-us {
+  background-color: $green;
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .bold { 
+    font-weight: bold;
+  }
+
+  h1 {
+    color: $white;
+  }  
+
+  .wrapper {
+    section {
+      @include breakpoint(tablet) {
+        width: 80%;
+      }
+
+      ul {
+
+        margin-bottom: 60px;
+
+        li {
+          font-size: 16px;
+
+          a {
+            text-decoration: underline;
+          }
+
+          &:first-child {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  aside {
+    background-color: $dark-blue;
+    width: 350px;
+  }
+}

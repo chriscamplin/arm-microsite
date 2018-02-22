@@ -1,0 +1,179 @@
+@mixin list-remove-styling {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+
+
+//*********************
+///////////BREAKPOINTS
+//*********************
+
+@mixin breakpoint($point) {
+  @if $point == x-wide {
+    @media (min-width: 105.063em) { @content ; } //1681px
+  } @else if $point == tallwide {
+    @media (min-width: 105.063em) and (min-height: 65.688em) { @content ; } //1681px
+  } @else if $point == widescreen {
+    @media (min-width: 96em) { @content ; } //1540px
+  } @else if $point == tall {
+    @media (min-height: 65.688em) { @content ; } //height 1051px++
+  } @else if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+  } @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+  } @else if $point == tablet {
+    @media (min-width: 60em) { @content ; }
+  } @else if $point == phablet {
+    @media (min-width: 37.5em)  { @content ; }
+  } @else if $point == mobileonly {
+    @media (max-width: 50em)  { @content ; }
+  } @else if $point == shortscreen {
+    @media (max-height: 64em) { @content ; }
+  }
+}
+
+
+@mixin center($horizontal: true, $vertical: true) {
+
+  @if ($horizontal and $vertical) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+
+// Burger
+
+// Burger parts
+//
+// (---) top    -> &::before
+// [---] middle -> &
+// (---) bottom -> &::after
+
+
+// Vendor prefixes
+$sass-burger-add-vendor-prefixes: true !default;
+
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
+
+  margin-bottom: $height + $gutter;
+  margin-top: $height + $gutter;
+  position: relative;
+  user-select: none;
+
+  // 1. Fixes jagged edges in Firefox, see issue #10.
+  &,
+  &::before,
+  &::after {
+    background-color: $color;
+    display: block;
+    height: $height;
+    outline: 1px solid transparent; // 1
+    transition-duration: $transition-duration;
+    transition-property: background-color, transform;
+    width: $width;
+
+    @if $border-radius != 0 {
+      border-radius: $border-radius;
+    }
+
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    top: -($height + $gutter);
+  }
+
+  &::after {
+    top: $height + $gutter;
+  }
+}
+
+
+// Select parts of the burger
+@mixin burger-parts {
+  &,
+  &::before,
+  &::after {
+    @content;
+  }
+}
+
+@mixin burger-top {
+  &::before {
+    @content;
+  }
+}
+
+@mixin burger-middle {
+  & {
+    @content;
+  }
+}
+
+@mixin burger-bottom {
+  &::after {
+    @content;
+  }
+}
+
+
+// Burger animations
+@mixin burger-to-cross($color: auto) {
+  & {
+    background-color: transparent;
+  }
+
+  @if ($color != auto) {
+    &::before,
+    &::after {
+      background-color: $color;
+    }
+
+  }
+
+  &::before {
+    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+  }
+}

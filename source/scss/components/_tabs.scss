@@ -1,0 +1,248 @@
+// sass-lint:disable nesting-depth
+
+aside {
+  nav {
+    height: 100%;
+
+    ul {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+
+      li {
+        border-bottom: 1px solid $orange;
+        color: $white;
+        cursor: pointer;
+        font-size: 36px;
+        height: 16.6666666667%;
+        list-style: none;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        a {
+          background: $dark-blue;
+          box-sizing: border-box;
+          color: $white;
+          height: 100%;
+          padding: 25px;
+          transition: background-color .75s;
+
+          &.active,
+          &:hover {
+            background: $orange;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Accordion for small screens (mobile first )
+.tabbed-content {
+  height: 100%;
+
+  .tabs {
+    display: none;
+  }
+
+  .item {
+    height: 71px;
+    min-height: 2em; // We need a minimum height for each item or else the accordion buttons would dissapear
+    padding: 0;
+    position: relative;
+
+    &::before {
+      content: attr(data-title); // Instead of polluting the HTML with a duplicate set of tabs, we get the accordion titles using the data-title attribute.
+    }
+
+    .item-content { // We hide the inactive content with zero opacity instead of "display:none" because this allows us to apply transition effects if we want.
+      max-height: 0;
+      opacity: 0;
+      transition: opacity .7s ease-in-out, max-height .7s ease-in-out;
+      visibility: hidden;
+
+      h1 {
+        display: none;
+      }
+
+      p {
+        font-family: 'Gotham-Medium', Helvetica, Arial;
+        font-size: 0;
+        line-height: 0;
+        margin: 0;
+        padding: 0;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      .cta-row {
+        margin: 0;
+      }
+
+      .btn {
+        border: 0;
+        font-size: 0;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+
+    &.active {
+      height: auto;
+      overflow: inherit;
+
+      .item-content {
+        max-height: 5000px;
+        opacity: 1;
+        padding: 15px 15px 75px;
+        visibility: visible;
+
+        @include breakpoint(tablet) {
+          padding: 0;
+        }
+
+        p,
+        h3,
+        li {
+          font-family: 'Gotham-Book ', Helvetica, Arial;
+        }
+
+        p {
+          font-size: 24px;
+          line-height: 30px;
+          margin-bottom: 20px;
+
+          a {
+            text-decoration: underline;
+          }
+        }
+
+        ul {
+          padding-left: 20px;
+        }
+
+        li {
+          font-size: 22px;
+          line-height: 30px;
+          list-style: disc;
+          margin-bottom: 10px;
+        }
+
+        .btn {
+          border: 2px solid $dark-blue;
+          font-size: 16px;
+          padding: 10px;
+        }
+
+        .cta-row {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.item {
+  margin-bottom: 2px;
+
+  &::before {
+    background-color: $dark-blue;
+    color: $white;
+    cursor: pointer;
+    display: block;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 19px;
+  }
+
+  &::after {
+    background: url('../img/Line.svg') no-repeat 95% 26px;
+    content: '';
+    height: 73px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &.active {
+
+    &::before {
+      background-color: $orange;
+    }
+
+    &::after {
+      background-position: 5% 26px;
+      transform: rotateZ(180deg);
+    }
+
+  }
+}
+
+
+// Tabs for larger screens
+@include breakpoint(tablet) {
+  .tabbed-content {
+
+    .tabs {
+      display: block;
+
+      li {
+        display: inline-block;
+
+        a {
+          display: block;
+        }
+      }
+    }
+
+    .item {
+      height: auto;
+      min-height: 0;
+      width: 65%;
+
+      .item-content {
+        transition: opacity .7s ease-in-out;
+
+        h1 {
+          display: block;
+          margin-bottom: 40px;
+          margin-top: 0;
+        }
+      }
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+
+
+    &.tabs-side {
+
+      .tabs {
+
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(tallwide) {
+  .tabbed-content {
+    .item {
+      .item-content {
+
+        h1 {
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+}

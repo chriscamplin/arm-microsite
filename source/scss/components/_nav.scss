@@ -1,0 +1,162 @@
+// sass-lint:disable nesting-depth no-duplicate-properties no-vendor-prefixes
+
+.main-nav {
+
+  @include clearfix;
+  background-color: transparent;
+  max-height: 68px;
+  overflow: hidden;
+  transition: background-color .5s, max-height .75s;
+
+  @include breakpoint(tablet) {
+    margin-top: 25px;
+    max-height: 52px;
+    padding-bottom: 0;
+
+  }
+
+  svg {
+    height: 45px;
+    width: 164px;
+
+    .page-1 {
+      path,
+      polygon {
+        fill: $dark-blue;
+      }
+    }
+  }
+
+  .menu-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+    position: absolute;
+    right: 9px;
+    top: 9px;
+
+    @include breakpoint(tablet) {
+      display: none;
+    }
+  }
+
+  .burger-icon {
+    @include burger(38px, 5px, 8px, $dark-blue);
+  }
+
+  &.is-active {
+    background-color: $dark-blue;
+    height: 100%;
+    max-height: 2000px;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    svg {
+
+      .page-1 {
+
+        path,
+        polygon {
+          fill: $dark-blue;
+        }
+      }
+    }
+
+    .burger-icon {
+      @include burger-to-cross($white);
+    }
+  }
+
+
+  ul {
+    margin: 2px 0;
+    margin-bottom: 100vh;
+    padding: 0;
+    width: 70%;
+
+    @include breakpoint(tablet) {
+      margin: 0;
+      width: 100%;
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: 15px;
+
+      @include breakpoint(tablet) {
+        margin-bottom: 0;
+      }
+
+      &:first-child {
+        max-width: 245px;
+        text-align: left;
+
+        @include breakpoint(tablet) {
+
+          a {
+            display: block;
+            font-size: 0;
+            height: 45px;
+            width: 164px;
+          }
+        }
+      }
+
+      a {
+        color: $white;
+        font-size: 42px;
+
+        &.active {
+          color: $blue;
+
+        }
+
+        @include breakpoint(tablet) {
+          color: $dark-blue;
+          font-size: 14px;
+          text-align: center;
+
+          &.active {
+            color: $dark-blue;
+            text-decoration: underline;
+          }
+        }
+
+      }
+
+      img {
+        max-width: 209px;
+        width: 100%;
+
+        @include breakpoint(tablet) {
+          max-width: 134px;
+        }
+      }
+    }
+
+  }
+}
+
+
+@include breakpoint(tablet) {
+  .main-nav {
+
+    & ul {
+
+      align-items: center;
+      display: -ms-flexbox;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      & li {
+        flex: 1 1 100%;
+        -ms-flex: 1;
+        text-align: center;
+      }
+    }
+  }
+}
+
+

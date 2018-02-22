@@ -1,0 +1,78 @@
+// sass-lint:disable force-element-nesting
+
+.events-hub {
+  background-color: $dark-blue;
+  color: $white;
+
+  .wrapper {
+    float: none;
+
+    > h1 {
+      font-size: 61px;
+      text-transform: none;
+    }
+
+    .cta-row {
+
+      @include breakpoint(tablet) {
+        margin-top: 11rem;
+      }
+
+      //only for some btns on the page
+        .fixed-width-btn {
+          width: 250px;
+        }
+    }
+  }
+
+  .main-nav {
+
+    .burger-icon {
+      background-color: $white;
+
+      &::after,
+      &::before {
+        background-color: $white;
+      }
+    }
+
+    ul li a {
+      color: $white;
+
+      &.active {
+
+        @include breakpoint(tablet) {
+          color: $white;
+        }
+      }
+    }
+
+    svg {
+      .page-1 {
+        path,
+        polygon {
+          fill: $white;
+        }
+      }
+    }
+
+  }
+
+  section {
+    margin: 10px;
+    margin-bottom: 20px;
+    max-width: 960px;
+    min-height: 480px;
+    padding: 15px;
+
+    @include breakpoint(tablet) {
+      margin: 0 0 20px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    h4 {
+      color: $dark-blue;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+
+body {
+  font-family: 'Gotham-Medium', Helvetica, Arial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Gotham-Medium', Helvetica, Arial;
+  text-transform: uppercase;
+
+  &.blue {
+    color: $blue;
+  }
+
+  &.pink{
+    color: $pink;
+  }
+
+  &.white {
+    color: $white;
+  }
+
+  &.underline,
+  &.overline {
+    min-height: 30px;
+    position: relative;
+
+    &::before {
+      background-color: $dark-blue;
+      content: ' ';
+      height: 6px;
+      position: absolute;
+      width: 100%;
+    }
+
+    &.blue {
+      &::before {
+        background-color: $blue;
+      }
+    }
+
+     &.pink {
+      &::before {
+        background-color: $pink;
+      }
+    }
+  }
+
+  &.underline {
+    &::before {
+      bottom: 0;
+    }
+  }
+}
+
+h1 {
+
+  &.large {
+    font-size: 61px;
+    text-transform: none;
+  }
+}
+
+
+h2 {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 24px;
+  margin: 20px 0 60px;
+  text-transform: none;
+
+}
+
+h6 {
+  font-size: 16px;
+  margin: 20px 0;
+  text-transform: none;
+}
+
+
+a {
+  color: $dark-blue;
+  text-decoration: none;
+}
+
+p {
+  font-family: 'Gotham-Medium', Helvetica, Arial;
+  font-size: 24px;
+}
+
+footer {
+  color: $white;
+
+  span {
+    position: relative;
+    top: 20px;
+  }
+
+  a {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    display: inline-block;
+    height: 72px;
+    text-indent: -10000px;
+    width: 30px;
+
+    @include breakpoint(tablet) {
+      height: 58px;
+    }
+  }
+}

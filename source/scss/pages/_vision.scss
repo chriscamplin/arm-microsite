@@ -1,0 +1,241 @@
+$color-main: #444;
+$color-active: #808080;
+$background-active: #eee;
+$width-tabs-side: 150px;
+$breakpoint: 800px;
+
+.vision {
+  background-color: $orange;
+  transition: background-color .75s linear;
+
+  // @include breakpoint(tablet) {
+  //   overflow-y: hidden;
+  // }
+
+  .tabs {
+    ul {
+      li {
+        border-bottom: 1px solid $dark-blue;
+      }
+    }
+  }
+
+  .wrapper {
+
+    overflow-y: auto;
+
+    section {
+      @include breakpoint(tablet) {
+
+        width: 100%;
+      }
+
+      @include breakpoint(tallwide) {
+        @include center(false, true);
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        width: 76%;
+      }
+
+      &.long {
+        position: static;
+        transform: translateY(0);      
+      }
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  aside {
+    border-left: 1px solid $dark-blue;
+  }
+
+  h1 {
+    font-size: 61px;
+    text-transform: none;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-transform: none;
+
+    @include breakpoint(tablet) {
+
+      font-size: 32px;
+
+    }
+  }
+
+  h3 {
+    margin: 0;
+    text-transform: none;
+
+    &.light {
+      font-family: 'Gotham-Light', Helvetica, Arial;
+
+    }
+  }
+
+  .accordion {
+    padding: 0;
+
+    article {
+      background-position: 100% 100%;
+      background-repeat: no-repeat;
+      background-size: 70%;
+      border-bottom: 5px solid;
+      min-height: 320px;
+      padding-bottom: 10px;
+
+      @include breakpoint(tablet) {
+        background-size: 40%;
+        min-height: 580px;
+
+      }
+
+      &:nth-child(2) {
+        background-image: url(../img/Simon_Segars2.png);
+      }
+
+      &:nth-child(3) {
+        background-image: url(../img/getty.png);
+      }
+
+      h2,
+      h3 {
+       
+        @include breakpoint(tablet) {
+          max-width: 68%;
+        }
+      }
+
+      .footer {
+        padding-top: 80px;
+        width: 60%;
+
+        @include breakpoint(tablet) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &.grey {
+    background-color: $light-grey;
+
+    .item {
+
+      &.active {
+
+        &::before {
+          background-color: $light-grey;
+          color: $dark-blue;
+        }
+      }
+    }
+
+    aside nav ul li a {
+      background-color: $dark-blue;
+
+      &.active {
+        background-color: $light-grey;
+      }
+    }
+
+    .tabs {
+
+      ul {
+
+        li {
+          border-color: $light-grey;
+        }
+      }
+    }
+
+    h1 {
+      color: $dark-blue;
+    }
+
+    .accordion {
+
+      article {
+        margin-bottom: 40px;
+        min-height: 640px;
+
+        @include breakpoint(tablet) {
+          min-height: 460px;
+        }
+
+        @include breakpoint(widescreen) {
+          min-height: 560px;
+        }
+
+        h2, 
+        h3 {
+          @include breakpoint(tablet) {
+            max-width: 58%;
+          }
+        }
+
+        &:nth-child(2) {
+          background-image: url(../img/wheat.png);
+        }
+
+        &:nth-child(3) {
+          background-image: url(../img/phone.png);
+        }
+
+      }
+    }
+  }
+
+  .side-tab6 {
+
+    article {
+      @include clearfix();
+    }
+
+    p {
+
+      @include breakpoint(tablet) {
+        float: left;
+        width: 50%;
+      }
+
+      .btn {
+        display: block;
+        margin-top: 25px;
+        width: 100%;
+
+
+        @include breakpoint(tablet) {
+
+          width: 250px;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+
+      @include breakpoint(tablet) {
+        float: right;
+        max-width: 500px;
+        width: 50%;
+      }
+    }
+  }
+
+  footer {
+    display: none;
+
+    @include breakpoint(tallwide) {
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+

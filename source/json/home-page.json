@@ -1,0 +1,27 @@
+{
+    "homePage1": {
+        "title": "UNITING TO DELIVER TECHNOLOGY FOR THE GLOBAL GOALS",
+        "image": "globe-blue.png",
+        "bodyClass": "blue"
+    },
+    "homePage2": {
+        "title": "IF WE ACHIEVE THE VISION PUT FORWARD BY THE GLOBAL GOALS OUR WORLD WILL BE A RADICALLY BETTER PLACE IN 2030 ",
+        "image": "leaf.png",
+        "bodyClass": "grey"
+    },
+    "homePage3": {
+        "title": "A PARTNERSHIP  THAT CONNECTS BUSINESSES, NGO’S AND GOVERNMENTS",
+        "image": "building.png",
+        "bodyClass": "pink"
+    },
+    "homePage4": {
+        "title": "A GLOBAL GOALS TECHNOLOGY FORUM",
+        "image": "globe-green.png",
+        "bodyClass": "green"
+    },
+    "homePage5": {
+        "title": "DIGITAL TECHNOLOGY WILL BE A CRITICAL ENABLER TO THE REALIZATION OF THIS MARKET OPPORTUNITY",
+        "image": "mobile.png",
+        "bodyClass": "orange"
+    }
+}

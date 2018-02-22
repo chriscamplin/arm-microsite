@@ -1,0 +1,114 @@
+.btn {
+  background-repeat: no-repeat;
+  border: 2px solid $dark-blue;
+  border-radius: 25px;
+  color: $white;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 25px;
+  padding: 15px;
+  text-align: center;
+  transition: background-color .7s ease-in-out, color .7s ease-in-out;
+
+  @include breakpoint(tablet) {
+    display: inline-block;
+  }
+
+  &.dark-blue {
+    background-color: $dark-blue;
+
+    &:hover {
+      background-color: $white;
+      color: $dark-blue;
+    }
+  }
+
+  &.pink {
+    background-color: $pink;
+
+    &:hover {
+      background-color: $white;
+      color: $pink;
+    }
+  }
+
+  &.blue {
+    background-color: $blue;
+    color: $dark-blue;
+
+    &:hover {
+      background-color: $dark-blue;
+      color: $white;
+    }
+  }
+
+  &.white-border {
+    border-color: $white;
+    color: $white;
+
+  }
+
+  &.dark-blue-border {
+    border-color: $dark-blue;
+    color: $dark-blue;
+  }
+
+  &.no-border {
+    border-color: transparent;
+  }
+
+  &.trans {
+    background-color: transparent;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.video-play {
+    border: 2px solid;
+    position: relative;
+    width: 250px;
+    z-index: 10;
+
+    &::before {
+      background-image: url('../img/play.svg');
+      background-repeat: no-repeat;
+      content: ' ';
+      height: 16px;
+      left: 40px;
+      position: absolute;
+      width: 16px;
+    }
+  }
+}
+
+.cta-row {
+  margin-top: 2rem;
+
+  @include breakpoint(tablet) {
+    margin-top: 4rem;
+  }
+}
+
+a {
+  &.tw {
+    background-image: url('../img/twitter.svg');
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  &.l-in {
+    background-image: url('../img/linkedin.svg');
+  }
+
+  &.download {
+    background-image: url('../img/download.svg');
+    background-position: 16%;
+    padding-left: 25px;
+
+    &:hover {
+      background-image: url('../img/download-dark-blue.svg');
+    }
+  }
+}

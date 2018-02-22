@@ -1,0 +1,185 @@
+// sass-lint:disable nesting-depth
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+
+  color: $dark-blue;
+
+  &.no-scroll {
+    overflow-y: hidden;
+  }
+
+  main {
+    > * {
+      padding: 15px;
+
+      @include breakpoint(tablet) {
+        padding: 0;
+      }
+    }
+  }
+
+  .wrap {
+    @include clearfix;
+
+    @include breakpoint(tablet) {
+      height: 150%;
+    }
+
+    @include breakpoint(desktop) {
+      height: 100%;
+    }
+  }
+
+  .wrapper {
+    position: relative;
+
+    @include breakpoint(tablet) {
+      box-sizing: border-box;
+      float: left;
+      height: 100%;
+      padding: 0 40px 80px;
+      width: calc(100% - 350px);
+    }
+
+    @include breakpoint(tallwide) {
+      padding: 0 100px 80px;
+    }
+
+    section {
+
+      &.vert-center {
+        @include breakpoint(tablet) {
+
+          @include center(false, true);
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  aside {
+    display: none;
+    z-index: 10;
+    
+    @include breakpoint(tablet) {
+      display: block;
+      height: 100%;
+      max-width: 350px;
+      position: absolute;
+      right: 0;
+    }
+
+    section {
+      padding: 60px 50px 50px;
+    }
+  }
+}
+
+ul {
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+.blue-bg {
+  background-color: $blue;
+}
+
+.pink-bg {
+  background-color: $pink;
+}
+
+.logo {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.mobile-only {
+  display: block;
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.calendar {
+  margin-bottom: 50px;
+  padding-left: 0;
+
+  &.blue {
+    color: $blue;
+
+    li {
+      &:nth-child(1) {
+        background-image: url('../img/calendar-blue.svg');
+      }
+
+      &:nth-child(2) {
+        background-image: url('../img/clock-blue.svg');
+      }
+
+      &:nth-child(3) {
+        background-image: url('../img/marker-blue.svg');
+      }
+
+      &:nth-child(4) {
+        background-image: url('../img/speakers.svg');
+      }
+    }
+
+    a {
+      text-decoration: underline;
+
+      &.blue {
+        color: $blue;
+      }
+    }
+  }
+
+  &.dark-blue {
+    color: $dark-blue;
+
+    li {
+      &:nth-child(1) {
+        background-image: url('../img/calendar-dark-blue.svg');
+      }
+
+      &:nth-child(2) {
+        background-image: url('../img/clock-dark-blue.svg');
+      }
+
+      &:nth-child(3) {
+        background-image: url('../img/marker-dark-blue.svg');
+      }
+    }
+  }
+
+  li {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    line-height: 28px;
+    list-style: none;
+    margin-bottom: 17px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+  }
+}

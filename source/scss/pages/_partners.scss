@@ -1,0 +1,297 @@
+.partners {
+  background-color: $pink;
+
+  //only for some btns on the page
+  .full-width {
+    width: 100%;
+  }
+
+  .fixed-width-btn {
+    width: 250px;
+  }
+
+  p.white {
+    color: $white;
+  }
+
+  .wrapper {
+
+    section {
+      max-width: 820px;
+
+      @include breakpoint(tablet) {
+        width: 80%;
+      }
+
+      .partners-logo-blk {
+        margin-top: 15px;
+      }
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  svg {
+
+    display: inline-block;
+    height: 80px;
+    max-width: 100%;
+    width: 414px;
+
+    @include breakpoint(tablet) {
+      width: 410px;
+    }
+
+    .page-1 {
+
+      path,
+      polygon {
+        fill: $dark-blue;
+      }
+    }
+  }
+
+  .event-wrapper {
+    position: relative;
+
+    @include breakpoint(tablet) {
+      width: calc(100% - 350px);
+    }
+
+    section {
+
+      padding: 40px 15px;
+
+      @include breakpoint(tablet) {
+
+        padding: 40px 40px 10px;
+
+      }
+
+      @include breakpoint(desktop) {
+
+        padding: 80px 100px 10px;
+
+      }
+
+      &.map-section {
+        @include breakpoint(tablet) {
+
+          padding: 0;
+
+        }
+      }
+
+      &.location {
+        padding: 50px 15px;
+
+        @include breakpoint(tablet) {
+
+          padding: 80px 100px;
+
+        }
+
+      }
+    }
+
+  }
+
+  h1 {
+    font-size: 41px;
+    line-height: 40px;
+    margin: 0;
+    text-transform: none;
+
+    @include breakpoint(tablet) {
+      font-size: 61px;
+      line-height: 60px;
+    }
+  }
+
+  aside {
+    background: $dark-blue;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+
+  .guest {
+    background-color: $light-grey;
+    background-position: right 100%;
+    background-repeat: no-repeat;
+    background-size: 360px;
+    border-bottom: 1px solid;
+    min-height: 600px;
+    position: relative;
+    transition: min-height .7s ease;
+
+    @include breakpoint(tablet) {
+      background-position: 90% bottom;
+      background-size: 500px;
+    }
+
+    &.make-space {
+      min-height: 920px;
+
+      @include breakpoint(tablet) {
+        min-height: 600px;
+      }
+    }
+
+    a {
+
+      &.more-info {
+        bottom: 120px;
+      }
+    }
+
+    p,
+    h1 {
+      font-weight: 100;
+      margin: 0;
+      width: 90%;
+
+      @include breakpoint(tablet) {
+        width: 50%;
+      }
+
+    }
+
+    h4 {
+      line-height: 2;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    &.first {
+      background-image: url('../img/rubenstein.png');
+    }
+
+    &.second {
+      background-image: url('../img/segars.png');
+    }
+    
+    &.third {
+      background-image: url('../img/attenborough.png');
+    }
+  }
+
+  .location {
+    background: $dark-blue;
+
+    h4 {
+      margin: 0;
+    }
+
+    a,
+    h1,
+    h2,
+    h6,
+    p {
+      color: $white;
+      font-weight: 100;
+    }
+
+    h1 {
+      font-size: 41px;
+    }
+
+    h6 {
+      margin-top: 30px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .map-section {
+    background: $dark-blue;
+
+    a {
+      margin: 40px 10px;
+
+      @include breakpoint(tablet) {
+        margin: 50px 90px;
+      }
+    }
+  }
+
+  .map-wrapper {
+    height: 278px;
+  }
+
+  footer {
+    background: $dark-blue;
+    height: 80px;
+
+    div {
+      margin: 0 auto;
+
+      @include breakpoint(tablet) {
+        padding-left: 100px;
+        padding-right: 20px;
+
+      }
+    }
+  }
+
+  .more-info-btn {
+    padding-right: 20px;
+    position: relative;
+
+    &::after {
+      background: url('../img/line-blue.svg') no-repeat 0 50%;
+      background-size: 100%;
+      content: ' ';
+      height: 16px;
+      position: absolute;
+      right: 0;
+      width: 16px;
+    }
+
+    &.is-active {
+
+      &::after {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  p {
+    font-size: 22px;
+    line-height: 30px;
+
+    &.reveal {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .7s ease;
+
+      &.is-active {
+        max-height: 1000px;
+      }
+    }
+  }
+}
+
+.logos {
+  max-width: 1400px;
+}
+
+.logo-wrapper {
+  float: left;
+  width: 50%;
+
+  img {
+    width: 100%;
+  }
+
+  @include breakpoint(desktop) {
+    width: 20%;
+  }
+}
